@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-	resources :user, only: :new, :create
-	resources :pitch
-	resources :team
-	resources :ranking
+	resources :users, only: [:new, :create]
+	resources :pitches
+	resources :teams
+	resources :rankings
 end
