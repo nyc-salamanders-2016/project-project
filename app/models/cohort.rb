@@ -1,8 +1,6 @@
 class Cohort < ApplicationRecord
-	has_many :students
-	has_many :pitches, through: :students, source: :user
-	belongs_to :user
-	belongs_to :team
+	has_many :users
+	has_many :pitches, through: :users
 
 	validates :name, :year, presence: true
 end

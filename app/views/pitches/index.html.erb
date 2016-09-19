@@ -1,0 +1,5 @@
+<% if current_user.admin == false %>
+	<%= react_component 'StudentViewComponent' %>	
+<% else %>
+	<%= react_component 'AdminViewComponent'%>	
+<% end %>
