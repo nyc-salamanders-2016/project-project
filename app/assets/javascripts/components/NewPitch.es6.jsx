@@ -1,4 +1,15 @@
 class NewPitch extends React.Component {
+	constructor() {
+		super()
+		this.handleSubmit = this.handleSubmit.bind(this)
+	}
+
+	handleSubmit(event) {
+		event.preventDefault()
+		$.ajax({
+			url:
+		})
+	}
 
 	render() {
 		return(

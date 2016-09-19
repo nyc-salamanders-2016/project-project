@@ -7,4 +7,6 @@ Rails.application.routes.draw do
 	resources :pitches
 	resources :teams
 	resources :rankings
+
+	root to: 'pitches#index'
 end
