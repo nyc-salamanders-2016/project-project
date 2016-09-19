@@ -1,6 +1,9 @@
 class Register extends React.Component {
 	constructor() {
     super()
+    this.state = {
+    	errors: []
+    }
     this.createUser = this.createUser.bind(this);
     }
 	
@@ -28,8 +31,10 @@ class Register extends React.Component {
 					cohort_id: cohortID
 				}
 			}
-		}).fail(function(err) => {
-			debugger;
+		}).done((response) => {
+				this.setState({
+					errors: response
+				})
 		});
 	}
 
@@ -37,7 +42,12 @@ class Register extends React.Component {
   	let cohorts= JSON.parse(this.props.cohorts)
     return (
     	<div>
-    		<p>Register</p>
+    	{
+    		this.state.errors.map((error, index) => {
+    			return <RegisterErrors key={index} data={error}/>
+    		})
+    	}
+    		<h2>Register</h2>
     		<form onSubmit={this.createUser.bind(this)}>
         	<input ref="username" type="text" placeholder="username" name= "user[username]" /><br></br>
         	<input ref="email" type="email" placeholder="email" name="user[email]" /><br></br>

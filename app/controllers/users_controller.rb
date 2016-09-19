@@ -2,12 +2,14 @@ class UsersController < ApplicationController
 	def new
 		@cohorts = Cohort.all.to_json
 	end
+
 	def create
 		@user = User.new(user_params)
 		if @user.save
-			redirect '/'
+			log_in @user
+			created = ["User has been created!"]
+			render json: created
 		else
-			status 422
 			render json: @user.errors.full_messages
 		end
 	end
