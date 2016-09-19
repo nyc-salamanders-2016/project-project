@@ -1,7 +1,7 @@
 class PitchesController < ApplicationController
 	def index
 		pitches = Pitch.all
-		@pitches = pitches.as_json
+		@pitches = pitches.as_json(include: {:user => {only:[:username]}})
 	end
 
 	def new
@@ -9,7 +9,7 @@ class PitchesController < ApplicationController
 
 	def create
 		pitch = current_user.pitches.create(title: params[:title], body: params[:body], user: current_user)
-		render :json =>  pitch, :include => {:user}
+		render :json =>  {pitch: pitch}
 	end
 
 	def show

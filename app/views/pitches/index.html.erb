@@ -1,5 +1,4 @@
-<% if current_user.admin == false %>
-	<%= react_component 'StudentViewComponent' %>	
-<% else %>
-	<%= react_component 'AdminViewComponent'%>	
-<% end %>
+
+	<%= react_component 'StudentView', pitches: @pitches %>	
+
+	<%= react_component 'AdminView'%>	
