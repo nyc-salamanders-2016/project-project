@@ -6,7 +6,6 @@ class CreateUsers < ActiveRecord::Migration[5.0]
     	t.string :password_digest
     	t.boolean :admin, default: false
     	t.integer :cohort_id
-    	t.integer :team_id
 
       t.timestamps
     end
