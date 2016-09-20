@@ -10,52 +10,33 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160919160548) do
+ActiveRecord::Schema.define(version: 20160920025911) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "cohorts", force: :cascade do |t|
-    t.string   "name",       null: false
-    t.integer  "year",       null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "pitches", force: :cascade do |t|
-    t.string   "title",                         null: false
-    t.text     "body",                          null: false
-    t.integer  "user_id",                       null: false
-    t.integer  "first_round_votes", default: 0
-    t.datetime "created_at",                    null: false
-    t.datetime "updated_at",                    null: false
-  end
-
-  create_table "rankings", force: :cascade do |t|
-    t.integer  "rank",       null: false
-    t.integer  "user_id",    null: false
+  create_table "memberships", force: :cascade do |t|
+    t.integer  "member_id",  null: false
     t.integer  "pitch_id",   null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "teams", force: :cascade do |t|
-    t.string   "name",        null: false
-    t.integer  "pitch_id",    null: false
-    t.string   "team_leader"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+  create_table "pitches", force: :cascade do |t|
+    t.string   "title",                  null: false
+    t.text     "body",                   null: false
+    t.integer  "creator_id",             null: false
+    t.integer  "votes",      default: 0
+    t.integer  "rank",       default: 0
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "username",                        null: false
-    t.string   "email",                           null: false
-    t.string   "password_digest"
-    t.boolean  "admin",           default: false
-    t.integer  "cohort_id"
-    t.integer  "team_id"
-    t.datetime "created_at",                      null: false
-    t.datetime "updated_at",                      null: false
+    t.string  "username",                        null: false
+    t.string  "email",                           null: false
+    t.string  "password_digest"
+    t.boolean "admin",           default: false
   end
 
 end

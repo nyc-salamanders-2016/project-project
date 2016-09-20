@@ -1,7 +1,6 @@
 class User < ApplicationRecord
-	has_many :pitches
-	has_many :rankings
-	belongs_to :cohort
+	has_many :pitches, foreign_key: :creator_id
+	has_one :membership, foreign_key: :member
 
 	has_secure_password
 
