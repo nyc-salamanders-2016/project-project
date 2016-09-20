@@ -1,7 +1,9 @@
 class PitchesController < ApplicationController
 	def index
 		pitches = Pitch.all
+		teams = Team.all
 		@pitches = pitches.as_json(include: {:user => {only:[:username]}})
+		@teams = teams.as_json(include: {:pitch => {only:[:title]}})
 	end
 
 	def new
