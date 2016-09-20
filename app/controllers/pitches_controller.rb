@@ -8,8 +8,8 @@ class PitchesController < ApplicationController
 	end
 
 	def create
-		pitch = current_user.pitches.create(title: params[:title], body: params[:body], user: current_user)
-		render :json =>  {pitch: pitch}.as_json(include: {:user => {only:[:username, :admin]}})
+		pitch = current_user.pitches.create(title: params[:title], body: params[:body], creator: current_user)
+		render :json =>  {pitch: pitch}.as_json(include: {:creator => {only:[:username, :admin]}})
 	end
 
 	def show

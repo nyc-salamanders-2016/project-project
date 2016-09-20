@@ -1,6 +1,6 @@
 <% if logged_in? %>
 	<% if admin? %>
-		<%= react_component 'AdminView', pitches: @pitches, admin: current_user.admin? %>	
+		<%= react_component 'AdminView', pitches: @pitches, admin: current_user.admin?, teams: @teams %>	
 	<% else %>
 		<%= react_component 'StudentView', pitches: @pitches, admin: current_user.admin? %>	
 	<% end %>
