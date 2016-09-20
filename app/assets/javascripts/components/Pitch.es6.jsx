@@ -6,7 +6,6 @@ class Pitch extends React.Component {
 	}
 
 	showForm() {
-		debugger
 		if (this.props.rank) {
 			return (<NewRank pitch={this.props.data}/>)
 		}

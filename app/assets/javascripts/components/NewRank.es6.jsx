@@ -11,9 +11,7 @@ class NewRank extends React.Component {
 			method: event.target.method,
 			data: $(event.target).serialize()
 		}).done((response) => {
-			this.props.onUpdate(response)
-			this.refs.title.value = ""
-			this.refs.body.value = ""
+			$(event.target).html(response)
 		})
 	}
 
@@ -30,7 +28,7 @@ class NewRank extends React.Component {
 			    <option value="6">6</option>
 			    <option value="7">7</option>
 			  </select>
-			  <input type="submit" value="Submit" />
+			  <input ref="submit" type="submit" value="Submit" />
 			</form>
 		)
 	}
