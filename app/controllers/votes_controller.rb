@@ -3,6 +3,7 @@ class VotesController < ApplicationController
 	def new
 		pitches = Pitch.all
 		@pitches = pitches.as_json(include: {:creator => {only:[:username]}})
+		@votes = current_user.votes.to_json
 	end
 
 	def create

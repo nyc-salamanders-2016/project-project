@@ -25,8 +25,11 @@ class PitchVote extends React.Component {
 			})
 		})
 	}
+
 	displayButton(){
 		if (this.state.voted) {
+			return (<p>You voted for this pitch already!</p>)
+		} else if (this.props.votes === "true") {
 			return (<p>You voted for this pitch already!</p>)
 		} else {
 			return(
@@ -37,10 +40,9 @@ class PitchVote extends React.Component {
 		}
 	}
 
-
-
   render () {
   	var pitches = this.props.data;
+  	var votes = this.props.votes;
     return(
     	<div>
     		<p>{pitches.title}</p>
