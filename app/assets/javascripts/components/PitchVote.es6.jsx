@@ -44,12 +44,11 @@ class PitchVote extends React.Component {
   	var pitches = this.props.data;
   	var votes = this.props.votes;
     return(
-    	<div>
+    	<div id="pitch-container">
     		<p>{pitches.title}</p>
     		<p>{pitches.body}</p>
     		<p>{pitches.creator.username}</p>
     		{this.displayButton()}
-    		<br></br>
     	</div>
     )
   }

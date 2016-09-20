@@ -1,14 +1,18 @@
 class VotesController < ApplicationController
 	def index
-		ordered_pitches = Pitch.order_pitches_by_votes
-		@ordered = ordered_pitches.as_json(include: {:creator => {only:[:username]}})
-		@votes = Vote.all
+		if admin? 
+			ordered_pitches = Pitch.order_pitches_by_votes
+			@ordered = ordered_pitches.as_json(include: {:creator => {only:[:username]}})
+			@votes = Vote.all
+		end
 	end
 
 	def new
-		pitches = Pitch.all
-		@pitches = pitches.as_json(include: {:creator => {only:[:username]}})
-		@votes = current_user.votes.to_json
+		if admin? == false && logged_in?
+			pitches = Pitch.all
+			@pitches = pitches.as_json(include: {:creator => {only:[:username]}})
+			@votes = current_user.votes.to_json
+		end
 	end
 
 	def create
