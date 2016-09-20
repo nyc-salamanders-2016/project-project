@@ -3,7 +3,8 @@ class Pitch < ApplicationRecord
 	has_many :memberships
 	has_many :votes
 	has_many :members, through: :memberships, source: :member
-
+	has_many :rankings
+	
 	validates :title, :body, :creator, presence: true
 
 	def self.order_pitches_by_votes
