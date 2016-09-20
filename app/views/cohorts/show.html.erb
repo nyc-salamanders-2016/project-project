@@ -1,9 +1,0 @@
-<h1>Pitches</h1>
-<div>
-<% @pitches.each do |pitch| %>
-<form>
-	<input class="single-checkbox"type="checkbox" value="<%=pitch.id%>"><%=pitch.title%>,<%=pitch.body%>,<%=pitch.user.username%><br>
-	 <% end %>
-	<input type="submit" value="Vote" />
-</form>
-</div>

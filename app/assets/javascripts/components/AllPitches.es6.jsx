@@ -4,6 +4,7 @@ class AllPitches extends React.Component {
 		this.state = { pitches: [] }
 
 		this.newPitch = this.newPitch.bind(this)
+		this.showForm = this.showForm.bind(this)
 	}
 
 	componentDidMount() {
@@ -15,13 +16,22 @@ class AllPitches extends React.Component {
 		this.setState({ pitches: this.state.pitches.concat(newPitchVar) })
 	}
 
+	showForm() {
+		if (!this.props.admin) {
+			return (<NewPitch onUpdate={this.newPitch}/>)
+		}
+		else {
+			null
+		}
+	}
+
 	render() {
 		let pitches = this.state.pitches.map((pitch, i) =>{
 				return <Pitch data={pitch} key={i}/>
 			})
 		return (
 			<div> 
-				<NewPitch onUpdate={this.newPitch}/>
+				{this.showForm()}
 				{pitches}
 			</div>
 		)

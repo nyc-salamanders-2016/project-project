@@ -4,8 +4,8 @@ class CreateRankings < ActiveRecord::Migration[5.0]
     	t.integer :rank, null: false
     	t.integer :user_id, null: false
     	t.integer :pitch_id, null: false
-
+    	
       t.timestamps
     end
   end
-end
+end 
