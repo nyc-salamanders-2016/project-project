@@ -11,3 +11,4 @@ class Vote < ApplicationRecord
 	end
 
 end
+
