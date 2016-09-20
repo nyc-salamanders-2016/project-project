@@ -24,7 +24,7 @@ class Pitch extends React.Component {
 
 	showRankings() {
 		if (this.props.rankings && this.props.admin){
-			return (<p>Score: {this.calculateScoreMethod()}</p>)
+			return (<p>Score: {116 - this.calculateScoreMethod()}</p>)
 		}
 		else {
 			null
