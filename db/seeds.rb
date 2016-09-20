@@ -8,6 +8,25 @@
 
 user = User.create(username: "Guy", email: "guy@guy.com", password: "123456", admin: false)
 user2 = User.create(username: "Hey", email: "hey@hey.com", password: "123456", admin: false)
-pitch = user.pitches.create(title: "A good pitch", body: "blah blah blah blah blah blah blah blah blah, blah")
-membership = Membership.create(member_id: 1, pitch_id: 1)
-membership = Membership.create(member_id: 2, pitch_id: 1)
+user3 = User.create(username: "Henri", email: "henri@henri.com", password: "123456", admin: false)
+user4 = User.create(username: "Terence", email: "terence@terence.com", password: "123456", admin: false)
+
+user.pitches.create(title: "A good pitch", body: "blah blah blah blah blah blah blah blah blah, blah")
+user2.pitches.create(title: "A better pitch", body: "blah blah blah blah blah blah blah blah blah, blah")
+user3.pitches.create(title: "The best pitch", body: "blah blah blah blah blah blah blah blah blah, blah")
+
+Membership.create(member_id: 1, pitch_id: 1)
+Membership.create(member_id: 3, pitch_id: 1)
+Membership.create(member_id: 2, pitch_id: 2)
+Membership.create(member_id: 4, pitch_id: 2)
+
+
+Vote.create(user_id: 1, pitch_id: 1)
+Vote.create(user_id: 3, pitch_id: 2)
+Vote.create(user_id: 2, pitch_id: 2)
+Vote.create(user_id: 4, pitch_id: 2)
+Vote.create(user_id: 4, pitch_id: 3)
+Vote.create(user_id: 3, pitch_id: 3)
+Vote.create(user_id: 2, pitch_id: 3)
+
+

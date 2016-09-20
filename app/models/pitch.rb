@@ -10,14 +10,14 @@ class Pitch < ApplicationRecord
 		vote_counts = self.get_vote_counts
 		pitches = self.all
 		ordered_pitches = []
-		vote_counts.each do |count|
-		  pitches.each do |pitch|
-		  	if count == pitch.votes.length
-		  		ordered_pitches << pitch
-		  	end
-		  end 
-		 ordered_pitches
-		end	
+	  vote_counts.each do |count|
+	  	pitches.each do |pitch|
+	  		if pitch.votes.length == count && !ordered_pitches.include?(pitch)
+	  			ordered_pitches << pitch
+	  		end
+	  	end
+	  end 
+		ordered_pitches	
 	end
 
 	def self.get_vote_counts
