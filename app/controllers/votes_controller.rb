@@ -1,4 +1,9 @@
 class VotesController < ApplicationController
+	def index
+		ordered_pitches = Pitch.order_pitches_by_votes
+		@ordered = ordered_pitches.as_json(include: {:creator => {only:[:username]}})
+		@votes = Vote.all
+	end
 
 	def new
 		pitches = Pitch.all
@@ -16,6 +21,8 @@ class VotesController < ApplicationController
 			render json: failure
 		end
 	end
+
+	
 
 	private
 

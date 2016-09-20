@@ -22,5 +22,13 @@ class PitchesController < ApplicationController
 	end
 
 	def destroy
+		pitch = Pitch.find(params[:id])
+		if pitch.destroy
+			success = true
+			render json: success
+		else
+			failure = false
+			render json: failure
+		end
 	end
 end
