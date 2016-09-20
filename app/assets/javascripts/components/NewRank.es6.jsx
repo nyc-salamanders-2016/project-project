@@ -11,14 +11,13 @@ class NewRank extends React.Component {
 			method: event.target.method,
 			data: $(event.target).serialize()
 		}).done((response) => {
-			debugger
-			$('#rank-form').html(response)
+			$(`#${this.props.rankID}`).html(response)
 		})
 	}
 
 	render() {
 		return(
-			<form id="rank-form" onSubmit={this.handleSubmit} action="/rankings" method="post">
+			<form id={this.props.rankID} onSubmit={this.handleSubmit} action="/rankings" method="post">
 			  <input type="hidden" name="pitch_id" value={this.props.pitch.id} />
 			  <select name="rank">
 			    <option value="1">1</option>

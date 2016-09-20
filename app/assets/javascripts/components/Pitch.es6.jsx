@@ -7,7 +7,7 @@ class Pitch extends React.Component {
 
 	showForm() {
 		if (this.props.rank) {
-			return (<NewRank pitch={this.props.data}/>)
+			return (<NewRank pitch={this.props.data} rankID={this.props.rankID}/>)
 		}
 		else {
 			null

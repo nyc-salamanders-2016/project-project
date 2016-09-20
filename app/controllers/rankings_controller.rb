@@ -5,7 +5,11 @@ class RankingsController < ApplicationController
 	end
 
 	def create
-		ranking = Ranking.create(pitch_id: params[:pitch_id], user_id: current_user.id, rank: params[:rank])
-		render "_thankyou", layout: false
+		ranking = Ranking.new(pitch_id: params[:pitch_id], user_id: current_user.id, rank: params[:rank])
+		if ranking.save
+			render "_thankyou", layout: false
+		else
+			render"_ranking_error", layout: false
+		end
 	end
 end
