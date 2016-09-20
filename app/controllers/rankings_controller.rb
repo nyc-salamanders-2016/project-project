@@ -1,4 +1,9 @@
 class RankingsController < ApplicationController
+	def index
+		ordered_pitches = Pitch.order_pitches_by_votes
+		@ordered_pitches = ordered_pitches.as_json(methods: [:rankings], include: {:creator => {only:[:username]}})
+	end
+
 	def new
 		ordered_pitches = Pitch.order_pitches_by_votes.first(7)
 		@ordered_pitches = ordered_pitches.as_json(include: {:creator => {only:[:username]}})

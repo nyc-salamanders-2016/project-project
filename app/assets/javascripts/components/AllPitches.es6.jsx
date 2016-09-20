@@ -31,6 +31,7 @@ class AllPitches extends React.Component {
 			})
 		return (
 			<div> 
+			<h3>All pitches</h3>
 				{this.showForm()}
 				{pitches}
 			</div>
