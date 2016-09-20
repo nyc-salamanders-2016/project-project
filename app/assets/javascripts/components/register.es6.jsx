@@ -18,7 +18,6 @@ class Register extends React.Component {
     else if(this.refs.instructor.checked) {
             var admin = "true";
         }
-    var cohortID = this.refs.cohort.value;
 		$.ajax({
 			url: '/users',
 			method: 'POST',
@@ -27,8 +26,7 @@ class Register extends React.Component {
 					username: username,
 					email: email,
 					password: password,
-					admin: admin,
-					cohort_id: cohortID
+					admin: admin
 				}
 			}
 		}).done((response) => {
@@ -39,7 +37,6 @@ class Register extends React.Component {
 	}
 
   render () {
-  	let cohorts= JSON.parse(this.props.cohorts)
     return (
     	<div>
     	{
@@ -55,13 +52,6 @@ class Register extends React.Component {
           <br></br>
          	<input ref="student" type="checkbox" name="user[admin]" value="false" />Student<br></br>
          	<input ref="instructor" type="checkbox" name="user[admin]" value="true" />Instructor<br></br>
-         	<select ref="cohort" name="cohort">
-         		{
-         			cohorts.map((cohort, index) => {
-         				return (<option  key={index} value={cohort.id}>{cohort.name}, {cohort.year}</option>)
-         			})
-         		}
-         	</select><br></br>
           <input type="submit" value="Register"/>
     		</form>
     	</div>

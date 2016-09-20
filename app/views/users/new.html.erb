@@ -1,1 +1,5 @@
-<%= react_component 'Register', cohorts: @cohorts %>
+<% if logged_in? %>
+	<p> You are already registered! </p>
+<%else%>
+	<%= react_component 'Register'%>
+<%end%>
