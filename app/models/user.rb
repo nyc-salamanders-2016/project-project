@@ -1,6 +1,6 @@
 class User < ApplicationRecord
 	has_many :pitches, foreign_key: :creator_id
-	has_one :membership, foreign_key: :member
+	has_one :membership, foreign_key: :member_id
 
 	has_secure_password
 
