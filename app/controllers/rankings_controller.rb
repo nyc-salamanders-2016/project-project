@@ -6,6 +6,6 @@ class RankingsController < ApplicationController
 
 	def create
 		ranking = Ranking.create(pitch_id: params[:pitch_id], user_id: current_user.id, rank: params[:rank])
-		render '_thankyou'
+		render "_thankyou", layout: false
 	end
 end
