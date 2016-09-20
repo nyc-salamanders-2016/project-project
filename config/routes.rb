@@ -6,6 +6,7 @@ Rails.application.routes.draw do
 	resources :users, only: [:new, :create]
 	resources :memberships, only: [:new, :create]
 	resources :pitches
+	resources :votes
 
 	root to: 'pitches#index'
 end

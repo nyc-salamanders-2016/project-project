@@ -1,6 +1,5 @@
 class UsersController < ApplicationController
 	def new
-		@cohorts = Cohort.all.to_json
 	end
 
 	def create

@@ -1,15 +1,19 @@
-<h1>Login' in</h1>
-<%= form_for(:login, url: login_path) do |f| %>
+<%if logged_in? %>
+	<p>You are already logged in!</p>
+<%else%>
+	<h1>Login' in</h1>
+	<%= form_for(:login, url: login_path) do |f| %>
 
-	<% if @error %>
-		<p> <%=@error%> </p>
+		<% if @error %>
+			<p> <%=@error%> </p>
+		<% end %>
+
+	  <%= f.label :email %>
+	  <%= f.email_field :email%>
+
+	  <%= f.label :password %>
+	  <%= f.password_field :password %>
+
+	  <%= f.submit "Log in" %>
 	<% end %>
-
-  <%= f.label :email %>
-  <%= f.email_field :email%>
-
-  <%= f.label :password %>
-  <%= f.password_field :password %>
-
-  <%= f.submit "Log in" %>
 <% end %>
