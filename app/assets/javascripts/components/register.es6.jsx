@@ -1,10 +1,10 @@
 class Register extends React.Component {
 	constructor() {
-    super()
-    this.state = {
-    	errors: []
-    }
-    this.createUser = this.createUser.bind(this);
+        super()
+        this.state = {
+        	errors: []
+        }
+        this.createUser = this.createUser.bind(this);
     }
 	
 	createUser(event) {
@@ -14,8 +14,7 @@ class Register extends React.Component {
 		var password = this.refs.password.value;
 		if (this.refs.student.checked) {
             var admin = "false";
-        } 
-    else if(this.refs.instructor.checked) {
+        } else if(this.refs.instructor.checked) {
             var admin = "true";
         }
 		$.ajax({
@@ -30,9 +29,9 @@ class Register extends React.Component {
 				}
 			}
 		}).done((response) => {
-				this.setState({
-					errors: response
-				})
+			this.setState({
+				errors: response
+			})
 		});
 	}
 
