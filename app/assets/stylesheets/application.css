@@ -14,10 +14,21 @@
  *= require_self
  */
 
+#pitch-container-container {
+	border: 1px double;
+	margin-top: 7px;
+  background-color: #C6E1DE;
+	padding: 2px;
+}
+
+
 #pitch-container {
 	border: 1px dotted;
-	/*padding: 5px;*/
-	margin: 5px;
+	margin-top: 7px;
+  background-color: #02161A;
+  opacity: .9;
+  color: white;
+	padding: 5px;
 }
 
 #pitch-container h3 {
@@ -28,4 +39,29 @@
 #pitch-container p  {
 	margin: 0;
 	padding: 0;
+}
+
+#henridoingcss {
+	background: #F5F1F0;
+}
+
+#round-one-voting-css {
+	border: 1px dotted;
+	margin-top: 7px;
+  background-color: yellow;
+	padding: 5px;
+}
+
+#header-css {
+	background: #C9EBF1;
+	padding-bottom: 4px;
+	border: double;
+	padding-left: 3px;
+}
+
+#pitch-submit-body-css {
+	margin-top: 5px;
+	margin-bottom: 5px;
+  width: 36%;
+  height: 70px;
 }

@@ -8,15 +8,18 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
-  <%= link_to 'Home', pitches_path %>
-  <% if logged_in? %>
-  	<%= link_to 'Logout', logout_path,
-              method: :delete %>
-  <% else %>
-  	<%= link_to 'Register', new_user_path %>
-		<%= link_to 'Login', '/login' %>
-	<% end %>
+  <body id="henridoingcss">
+    <nav id="header-css">
+      <h1> Final Project Thyme </h1>
+      <%= link_to 'Home', pitches_path %>
+      <% if logged_in? %>
+      	<%= link_to 'Logout', logout_path,
+                  method: :delete %>
+      <% else %>
+      	<%= link_to 'Register', new_user_path %>
+    		<%= link_to 'Login', '/login' %>
+    	<% end %>
+    </nav>
     <%= yield %>
   </body>
 </html>

@@ -1,4 +1,14 @@
 class RankingView extends React.Component {
+	constructor() {
+		super()
+		this.showUserContainer = this.showUserContainer.bind(this)
+	}
+
+	showUserContainer() {
+		if (this.props.admin) {
+			return(<UserContainer admin={this.props.admin} users={this.props.users} />)
+		}
+	}
 
 // <pre><code>
 // 		{JSON.stringify(this.props.users, null, 4)}
@@ -7,7 +17,7 @@ class RankingView extends React.Component {
 		return (
 			<div> 
 				<OrderedPitches pitches={this.props.pitches} admin={this.props.admin}/>
-				<UserContainer users={this.props.users} />
+				{this.showUserContainer()}
 			</div>
 		)
 	}

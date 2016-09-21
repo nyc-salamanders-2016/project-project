@@ -20,9 +20,9 @@ class NewPitch extends React.Component {
 	render() {
 		return(
 			<form onSubmit={this.handleSubmit} action="/pitches" method="post">
-				<input ref="title" type="text" name="title" placeholder="Title" /><br></br><br></br>
-				<textarea ref="body" name="body" placeholder="Description"></textarea><br></br>
-				<input type="submit" value="Create!"/><br></br>
+				<input ref="title" type="text" name="title" placeholder="Title"/><br/>
+				<textarea id="pitch-submit-body-css" ref="body" name="body" placeholder="Description"></textarea><br/>
+				<input type="submit" value="Create!"/>
 			</form>
 		)
 	}
