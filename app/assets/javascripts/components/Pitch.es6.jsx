@@ -6,6 +6,7 @@ class Pitch extends React.Component {
 		this.calculateScoreMethod = this.calculateScoreMethod.bind(this)
 		this.showRankings = this.showRankings.bind(this)
 		this.showDetails = this.showDetails.bind(this)
+		this.getUserRankings = this.getUserRankings.bind(this)
 		this.showUserRankings = this.showUserRankings.bind(this)
 	}
 
@@ -33,13 +34,17 @@ class Pitch extends React.Component {
 		}
 	}
 
+	getUserRankings() {
+		return (this.props.userRankings.map((ranking, i) =>{
+			if (ranking.user_id === this.props.currentUser) {
+				return ranking.rank
+			}
+		}))
+	}
+
 	showUserRankings() {
 		if (this.props.userRankings && this.props.admin) {
-			return (this.props.userRankings.map((ranking, i) =>{
-				if (ranking.user_id === this.props.data.id) {
-					return ranking.rank
-				}
-			}))
+			return(<p>Ranking: {this.getUserRankings()}</p>)
 		}
 	}
 
@@ -61,7 +66,6 @@ class Pitch extends React.Component {
 	render() {
 
 		return(
-			
 			<div id="pitch-container"> 
 				<h3> {this.props.data.title}</h3>
 				{this.showDetails()}

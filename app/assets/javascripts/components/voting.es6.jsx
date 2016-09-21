@@ -16,7 +16,7 @@ class Voting extends React.Component {
   	
   	
     return(
-    	<div >
+    	<div id="round-one-voting-css">
 	    	{
 	    	  pitches.map((pitch,i) => {
 	          return (
