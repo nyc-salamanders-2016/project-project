@@ -1,1 +1,2 @@
-<%= react_component 'TeamsView', ordered: @ordered, users: @users %>
+
+<%= react_component 'TeamsView', ordered: @ordered, users: @users, user: @user.admin? %>

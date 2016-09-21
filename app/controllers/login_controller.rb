@@ -6,7 +6,7 @@ class LoginController < ApplicationController
     user = User.find_by(email: params[:login][:email].downcase)
     if user && user.authenticate(params[:login][:password])
       log_in user
-      redirect_to '/'
+      redirect_to '/pitches'
     else
       @error = 'Invalid email/password combination'
       render 'new'
@@ -15,6 +15,6 @@ class LoginController < ApplicationController
   
   def destroy
   	log_out
-  	redirect_to '/'
+  	redirect_to '/login'
   end
 end

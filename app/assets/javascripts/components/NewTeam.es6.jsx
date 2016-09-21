@@ -1,37 +1,28 @@
 class NewTeam extends React.Component {
-	constructor(){
-    super()
-    this.state = {
-     	pitches: [],
-    }
-  }
 
-	componentDidMount(){
-	    link= "/memberships.json"
-	    $.ajax({
-	      method: 'get',
-	      url: link
-	    }).done(function(response){
-	    this.setState({
-        pitches: response
-      })}.bind(this))
-	  }
 	render(){
+		let data = this.props.updateTeam
     return (
       <div>
       <h2>Teams!</h2>
       {
-	    	  this.state.pitches.map((pitch,i) => {
-	          return (
-	          	<div key={i}>
-	           <p>{pitch.title}</p>
-	           <p>members go here</p>
-	           </div>
-	          )
-	        })
-	    	}
+	    	data.map((pitch,i) => {
+	        return (
+	          <div id="pitch-container" key={i}>
+	          <p><strong>{pitch.title}</strong></p>
+	        	{
+	           	pitch.members.map((member,i) => {
+	           		return (
+	           			<p key={i}>{member.username}</p>
+	              )
+	           	})
+	          }
+	          </div>
+	        )
+	      })
+	    }
       </div>
-      )
+    )
   }
-	  
 }
+	  
