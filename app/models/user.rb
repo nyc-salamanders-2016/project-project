@@ -13,4 +13,12 @@ class User < ApplicationRecord
                     format: { with: VALID_EMAIL_REGEX }, uniqueness: { case_sensitive: false }
 
 
+	def picked?
+		if self.membership
+			return true
+		else
+			false
+		end
+	end
+
 end

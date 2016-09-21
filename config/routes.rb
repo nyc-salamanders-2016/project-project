@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   
 	resources :users, only: [:new, :create]
 	resources :rankings, only: [:index, :new, :create]
-	resources :memberships, only: [:new, :create]
+	resources :memberships, only: [:new, :create, :index]
 	resources :pitches
 	resources :votes
 
