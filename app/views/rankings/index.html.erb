@@ -1,1 +1,5 @@
-<%= react_component 'RankingView', pitches: @ordered_pitches, admin: current_user.admin?%>	
+<% if logged_in? %>
+	<%= react_component 'RankingView', pitches: @ordered_pitches, admin: current_user.admin?, users: @users%>	
+<% else %>
+	<h3>You do not have access to this page 😀</h3>	
+<% end %>

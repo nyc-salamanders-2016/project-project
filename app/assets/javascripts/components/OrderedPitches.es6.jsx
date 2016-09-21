@@ -7,7 +7,17 @@ class OrderedPitches extends React.Component {
 	headerView() {
 		if (!this.props.admin) {
 			return(
+				<div>
 				<h2>Rank your choices</h2>
+				<h4>*These pitches are in order from most-voted-on to least-voted-on*</h4>
+				</div>
+			)
+		} else {
+			return(
+				<div>
+				<h2>Rankings</h2>
+				<h4>*Higher scores indicate higher rankings among students*</h4>
+				</div>
 			)
 		}
 	}
@@ -18,8 +28,7 @@ class OrderedPitches extends React.Component {
 			})
 		return (
 			<div> 
-				{this.headerView}
-				<h4>*These pitches are in order from most-voted-on to least-voted-on*</h4>
+				{this.headerView()}
 				{pitches}
 			</div>
 		)
