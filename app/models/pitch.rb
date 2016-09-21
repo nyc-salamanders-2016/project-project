@@ -29,4 +29,11 @@ class Pitch < ApplicationRecord
 		end
 		vote_counts = vote_counts.sort.reverse
 	end
+
+	def picked?
+		self.memberships.length > 0
+	end
+
+
+
 end
