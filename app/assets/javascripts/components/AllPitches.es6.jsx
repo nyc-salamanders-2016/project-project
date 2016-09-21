@@ -13,7 +13,7 @@ class AllPitches extends React.Component {
 
 	newPitch(response) {
 		newPitchVar = response.pitch 
-		this.setState({ pitches: this.state.pitches.concat(newPitchVar) })
+		this.setState({ pitches: [newPitchVar].concat(this.state.pitches) })
 	}
 
 	showForm() {
