@@ -34,7 +34,6 @@ class Pitch extends React.Component {
 	}
 
 	showUserRankings() {
-
 		if (this.props.userRankings && this.props.admin) {
 			return (this.props.userRankings.map((ranking, i) =>{
 				if (ranking.user_id === this.props.data.id) {
