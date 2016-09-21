@@ -27,6 +27,7 @@ class MembershipsController < ApplicationController
 			end
 		end
 			@ordered = not_picked.as_json(include: {:creator => {only:[:username]}})
+			@user = current_user
 	end
 
 	def create

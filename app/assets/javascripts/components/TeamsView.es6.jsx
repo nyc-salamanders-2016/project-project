@@ -3,12 +3,22 @@ class TeamsView extends React.Component {
 		super ()
 		this.state = {
 			pitches: [],
-			members: []
+			members: [],
+			teamsPitch: [],
 		}
 		this.createTeam = this.createTeam.bind(this);
 		this.componentWillMount = this.componentWillMount.bind(this);
 	}
 	componentWillMount(){
+		link= "/memberships.json"
+	    $.ajax({
+	      method: 'get',
+	      url: link
+	    }).done((response) => {
+	    this.setState({
+        teamsPitch: response
+      })
+	  })
 		var pitch = this.props.ordered;
 		var memb = JSON.parse(this.props.users);
 		this.setState({
@@ -42,6 +52,15 @@ class TeamsView extends React.Component {
 				members: newMembers
 			})		
 		})
+		 link= "/memberships.json"
+	    $.ajax({
+	      method: 'get',
+	      url: link
+	    }).done((response) => {
+	    this.setState({
+        teamsPitch: response
+      })
+	  })
 	}
 
 	user(input) { return (
@@ -57,9 +76,12 @@ class TeamsView extends React.Component {
 				</select>
 			)}
 
+
 	makeTeam() {
+		if (this.props.user === true) {
 		return (
 			<div>
+			<h2>Make a team!</h2>
 				<form onSubmit={this.createTeam.bind(this)} id="pitch-container">
 					<select ref="pitch">
 					{
@@ -85,15 +107,15 @@ class TeamsView extends React.Component {
 				</form>
 			</div>
 			)
+		}
 	}
 
 	render () {
 
 		return (
-
 			<div>
-			<NewTeam/>
-				<h2>Make a team!</h2>
+			<NewTeam updateTeam={this.state.teamsPitch}/>
+				
 					{this.makeTeam()}
 			</div>
 		)
