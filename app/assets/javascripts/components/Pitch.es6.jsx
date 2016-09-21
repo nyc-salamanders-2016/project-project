@@ -5,6 +5,8 @@ class Pitch extends React.Component {
 		this.showForm = this.showForm.bind(this)
 		this.calculateScoreMethod = this.calculateScoreMethod.bind(this)
 		this.showRankings = this.showRankings.bind(this)
+		this.showDetails = this.showDetails.bind(this)
+		this.showUserRankings = this.showUserRankings.bind(this)
 	}
 
 	showForm() {
@@ -31,16 +33,43 @@ class Pitch extends React.Component {
 		}
 	}
 
+	showUserRankings() {
+		if (this.props.userRankings && this.props.admin) {
+			return (this.props.userRankings.map((ranking, i) =>{
+				if (ranking.user_id === this.props.data.id) {
+					var rankings = ranking.rank
+
+				}
+			}))
+		}
+	}
+
+		showDetails() {
+		if (this.props.data.creator && !(this.props.data.id === "") && !(this.props.data.body.length === "")){
+			return (
+				<div>
+				<p>Pitched by-{this.props.data.creator.username}</p>
+				<p>Pitch ID: {this.props.data.id}</p>
+				<p>Description: {this.props.data.body} </p>
+				</div>
+			)
+		}
+		else {
+			null
+		}
+	}
+
 	render() {
+
 		return(
 			
 			<div id="pitch-container"> 
 				<h3> {this.props.data.title}</h3>
-				<p> Pitch ID: {this.props.data.id}</p>
-				<p>Description: {this.props.data.body} </p>
-				<p>Pitched by-{this.props.data.creator.username}</p>
+				{this.showDetails()}
+
 				{this.showForm()}
 				{this.showRankings()}
+				{this.showUserRankings()}
 			</div>
 		)
 	}
