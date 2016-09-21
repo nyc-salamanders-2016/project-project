@@ -14,6 +14,10 @@
  *= require_self
  */
 
+body {
+	font-family: helvetica;
+}
+
 #pitch-container-container {
 	border: 1px double;
 	margin-top: 7px;
@@ -48,12 +52,14 @@
 #round-one-voting-css {
 	border: 1px dotted;
 	margin-top: 7px;
-  background-color: yellow;
+  /*background-color: #02161A;*/
+  opacity: .9;
+  color: white;
 	padding: 5px;
 }
 
 #header-css {
-	background: #C9EBF1;
+	background: #7BECE0;
 	padding-bottom: 4px;
 	border: double;
 	padding-left: 3px;
@@ -64,4 +70,17 @@
 	margin-bottom: 5px;
   width: 36%;
   height: 70px;
+}
+
+.pitch-title {
+	margin-bottom: 0;
+	padding: 0;
+	color: #7BECE0;
+}
+
+.score {
+	margin: 0;
+	padding: 0;
+	margin-bottom: 5px;
+	color: #19C65B;
 }

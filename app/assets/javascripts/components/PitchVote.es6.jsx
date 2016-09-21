@@ -28,9 +28,9 @@ class PitchVote extends React.Component {
 
 	displayButton(){
 		if (this.state.voted) {
-			return (<p>You voted for this pitch already!</p>)
+			return (<p>Thank you for voting!</p>)
 		} else if (this.props.votes === "true") {
-			return (<p>You voted for this pitch already!</p>)
+			return (<p>Thank you for voting!</p>)
 		} else {
 			return(
 				<form onSubmit={this.createVote.bind(this)}>

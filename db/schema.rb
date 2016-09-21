@@ -23,13 +23,11 @@ ActiveRecord::Schema.define(version: 20160920142954) do
   end
 
   create_table "pitches", force: :cascade do |t|
-    t.string   "title",                  null: false
-    t.text     "body",                   null: false
-    t.integer  "creator_id",             null: false
-    t.integer  "votes",      default: 0
-    t.integer  "rank",       default: 0
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.string   "title",      null: false
+    t.text     "body",       null: false
+    t.integer  "creator_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "rankings", force: :cascade do |t|

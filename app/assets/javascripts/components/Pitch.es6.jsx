@@ -27,7 +27,7 @@ class Pitch extends React.Component {
 
 	showRankings() {
 		if (this.props.rankings && this.props.admin){
-			return (<p>Score: {116 - this.calculateScoreMethod()}</p>)
+			return (`Score: ${116 - this.calculateScoreMethod()}`)
 		}
 		else {
 			null
@@ -67,10 +67,11 @@ class Pitch extends React.Component {
 
 		return(
 			<div id="pitch-container"> 
-				<h3> {this.props.data.title}</h3>
+				<h3 className="pitch-title"> {this.props.data.title}</h3>
+				<h4 className="score">{this.showRankings()}</h4>
 				{this.showDetails()}
 				{this.showForm()}
-				{this.showRankings()}
+				
 				{this.showUserRankings()}
 			</div>
 		)

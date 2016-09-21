@@ -1,6 +1,6 @@
 class PitchesController < ApplicationController
 	def index
-		pitches = Pitch.all
+		pitches = Pitch.all.reverse
 		@pitches = pitches.as_json(include: {:creator => {only:[:username]}})
 		ordered_pitches = Pitch.order_pitches_by_votes.first(7)
 		@ordered_pitches = ordered_pitches.as_json(include: {:creator => {only:[:username]}})
