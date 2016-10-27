@@ -1,24 +1,9 @@
-# README
+# Final Project Thyme
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+A Rails/React application used for voting on ideas. 
 
-Things you may want to cover:
+As a student, you can pitch an idea, and vote in round 1 and round 2.
 
-* Ruby version
+As a teacher, you can view all rounds' results and create teams based on the top voted ideas. 
 
-* System dependencies
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
